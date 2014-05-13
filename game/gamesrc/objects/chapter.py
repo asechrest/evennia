@@ -21,6 +21,9 @@ from ev import Object as DefaultObject
 from ev import Object
 from ev import Command
 
+from game.gamesrc.commands.cmdset import ChapterCmdSet
+from src.utils.evtable import EvTable
+
 class Chapter(Object):
     """
     This is a chapter object.  It's designed to be inserted into
@@ -49,10 +52,13 @@ class Chapter(Object):
         # Set our chapter attributes
         self.db.desc = desc
         self.db.chapter_num = 0
-        self.db.chapter_title = ""
+        self.db.chapter_title = "Test Title"
         self.db.chapter_summary = ""
-        self.db.content = ["Testing1", "Testing2"]
+        self.db.content = ["Testing1"]
         self.db.total_pages = 0
+
+        # Add command sets
+        self.cmdset.add(ChapterCmdSet, permanent=True)
 
         # Here we'll want to add commands specific to chapters
 
@@ -66,12 +72,41 @@ class Chapter(Object):
         pass
 
     def display_page(self):
-        # Use evtable to print a nice looking page
-        pass
+        """
+        Use evtable to print a nice looking page
+        
+        Example usage:
 
-class CmdEdit(Command):
-    pass
+        table = EvTable("Heading1", "Heading2", table=[[1,2,3],[4,5,6],[7,8,9]], border="cells")
+        table.add_column("This is long data", "This is even longer data")
+        table.add_row("This is a single row")
+        print table
 
+        Result:
+
+        +----------------------+----------+---+--------------------------+
+        |       Heading1       | Heading2 |   |                          |
+        +~~~~~~~~~~~~~~~~~~~~~~+~~~~~~~~~~+~~~+~~~~~~~~~~~~~~~~~~~~~~~~~~+
+        |           1          |     4    | 7 |     This is long data    |
+        +----------------------+----------+---+--------------------------+
+        |           2          |     5    | 8 | This is even longer data |
+        +----------------------+----------+---+--------------------------+
+        |           3          |     6    | 9 |                          |
+        +----------------------+----------+---+--------------------------+
+        | This is a single row |          |   |                          |
+        +----------------------+----------+---+--------------------------+
+        """
+        book_title = "*** Arise ***".upper()
+        heading = book_title + "\nCh. %s: %s" % (self.db.chapter_num, self.db.chapter_title)
+        content = "Once upon a time there was some test content. It was long, and crazy. "
+        content += "We did some more test content here, to see if it wraps propertly. "
+        content += "The test content endeavored to wrap improperly, but subsequently was "
+        content += "conquered, and thus wrapped properly. And so it was. And it was good. "
+        table = EvTable(heading, border="table", width=75)
+        table.add_row(content, align="l", border_top_char="~")
+        table.add_row("Pg. 1", align="c")
+
+        return table
 
 
 class Object(DefaultObject):

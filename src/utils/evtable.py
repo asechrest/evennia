@@ -359,7 +359,7 @@ class Cell(object):
         self.corner_bottom_right = kwargs.get("corner_bottom_right", corner)
 
         # alignments
-        self.align = kwargs.get("align", "l")
+        self.align = kwargs.get("align", "c")
         self.valign = kwargs.get("valign", "c")
 
         #self.data = self._split_lines(unicode(data))

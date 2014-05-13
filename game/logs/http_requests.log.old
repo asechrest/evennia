@@ -1,4 +1,0 @@
-127.0.0.1 - - [13/May/2014:03:15:27 +0000] "POST /webclientdata HTTP/1.1" 200 - "http://localhost:8000/webclient/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36"
-127.0.0.1 - - [13/May/2014:03:18:27 +0000] "POST /webclientdata HTTP/1.1" 200 - "http://localhost:8000/webclient/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36"
-127.0.0.1 - - [13/May/2014:03:19:25 +0000] "POST /webclientdata HTTP/1.1" 200 - "http://localhost:8000/webclient/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36"
-127.0.0.1 - - [13/May/2014:03:19:25 +0000] "POST /webclientdata HTTP/1.1" 200 - "http://localhost:8000/webclient/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.132 Safari/537.36"
