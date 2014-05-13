@@ -51,7 +51,7 @@ class Chapter(Object):
         self.db.chapter_num = 0
         self.db.chapter_title = ""
         self.db.chapter_summary = ""
-        self.db.content = []
+        self.db.content = ["Testing1", "Testing2"]
         self.db.total_pages = 0
 
         # Here we'll want to add commands specific to chapters
@@ -69,7 +69,8 @@ class Chapter(Object):
         # Use evtable to print a nice looking page
         pass
 
-class CmdEdit
+class CmdEdit(Command):
+    pass
 
 
 
