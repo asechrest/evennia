@@ -62,6 +62,10 @@ class Chapter(Object):
 
         # Here we'll want to add commands specific to chapters
 
+    def edit_ch_num(self):
+        pass
+
+
     def add_page(self):
         pass
 
@@ -102,7 +106,9 @@ class Chapter(Object):
         content += "We did some more test content here, to see if it wraps propertly. "
         content += "The test content endeavored to wrap improperly, but subsequently was "
         content += "conquered, and thus wrapped properly. And so it was. And it was good. "
-        table = EvTable(heading, border="table", width=75)
+        content += "\n\n\n and it was followed by three newlines as a test."
+        content += "\n   This tests a pseudo tab that's 3 spaces."
+        table = EvTable(heading, border="table", width=75, height=10, enforce_size=True)
         table.add_row(content, align="l", border_top_char="~")
         table.add_row("Pg. 1", align="c")
 
