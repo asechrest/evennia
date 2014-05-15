@@ -153,7 +153,7 @@ class CmdChapter(MuxCommand):
       # Parse the command input
       # Pull apart the command input
       args = self.args
-      switches = self.switches
+      #switches = self.switches
 
       # Store so we can access outside of function
       self.ch_name = args

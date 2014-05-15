@@ -20,9 +20,15 @@ this change, you have to convert them manually e.g. with the
 from ev import Object as DefaultObject
 from ev import Object
 from ev import Command
+import textwrap
+import math
 
 from game.gamesrc.commands.cmdset import ChapterCmdSet
 from src.utils.evtable import EvTable
+
+# Support function to chunk a list
+def chunker(seq, size):
+    return (seq[pos:pos + size] for pos in xrange(0, len(seq), size))
 
 class Chapter(Object):
     """
@@ -65,7 +71,6 @@ class Chapter(Object):
     def edit_ch_num(self):
         pass
 
-
     def add_page(self):
         pass
 
@@ -77,42 +82,90 @@ class Chapter(Object):
 
     def display_page(self):
         """
-        Use evtable to print a nice looking page
-        
-        Example usage:
+        Displays chapter text using EvTable
 
-        table = EvTable("Heading1", "Heading2", table=[[1,2,3],[4,5,6],[7,8,9]], border="cells")
-        table.add_column("This is long data", "This is even longer data")
-        table.add_row("This is a single row")
-        print table
+        Here we'll break chapter text up into chunks to be displayed in EvTables with
+        a single column, three rows, and defined width and height for "book-like" 
+        readability. The heading contains the book title, if any, followed by the 
+        chapter number and name. The middle row contains the chapter text, wrapped
+        approprirately for readability. The third row contains the page number.
 
-        Result:
+        Since the table will have defined height, chapter content should fill an
+        EvTable ("page") and be able to overflow into subsequent "pages", with
+        some mechanism for the user to cycle through pages.
 
-        +----------------------+----------+---+--------------------------+
-        |       Heading1       | Heading2 |   |                          |
-        +~~~~~~~~~~~~~~~~~~~~~~+~~~~~~~~~~+~~~+~~~~~~~~~~~~~~~~~~~~~~~~~~+
-        |           1          |     4    | 7 |     This is long data    |
-        +----------------------+----------+---+--------------------------+
-        |           2          |     5    | 8 | This is even longer data |
-        +----------------------+----------+---+--------------------------+
-        |           3          |     6    | 9 |                          |
-        +----------------------+----------+---+--------------------------+
-        | This is a single row |          |   |                          |
-        +----------------------+----------+---+--------------------------+
+        While EvTable is fantastic, it simply truncates a long string of text that 
+        doesn't fit within a cell height, with no ability to access the overflow
+        text.  Because of this, we'll pre-process our text string to determine how
+        manu "chunks" of text we'll need in order to structure our pages. Since
+        a cell has a defined width, and the height of a cell is defined as the 
+        number of lines it has room for, this makes it possible to pre-process
+        our chapter content to fill the EvTables.  This pre-processing should 
+        basically mirror the functionality in EvTable, breaking the string up
+        into chunks of same width and number of lines as EvTable would for the
+        content cell.
         """
+        # Build the text for our header row, two lines
         book_title = "*** Arise ***".upper()
         heading = book_title + "\nCh. %s: %s" % (self.db.chapter_num, self.db.chapter_title)
-        content = "Once upon a time there was some test content. It was long, and crazy. "
-        content += "We did some more test content here, to see if it wraps propertly. "
-        content += "The test content endeavored to wrap improperly, but subsequently was "
-        content += "conquered, and thus wrapped properly. And so it was. And it was good. "
-        content += "\n\n\n and it was followed by three newlines as a test."
-        content += "\n   This tests a pseudo tab that's 3 spaces."
-        table = EvTable(heading, border="table", width=75, height=10, enforce_size=True)
-        table.add_row(content, align="l", border_top_char="~")
-        table.add_row("Pg. 1", align="c")
+
+        # Sample content for testing. In-game chapter content creation will involve
+        # input on a single line (the text input field). Suggest user help text that
+        # directs them to use a newline characters and three spaces to set apart.
+        content = "Once upon a time there was some test content. It was long, and crazy."
+        content += " We did some more test content here, to see if it wraps properly."
+        content += " The test content endeavored to wrap improperly, but subsequently was "
+        content += "conquered, and thus wrapped properly. \n\nAnd so it was. And it was good. "
+        content += "This doesn't start a new line. "
+        content += "This overflows to a second page if height is 5."
+        
+        # Set some chapter display variables
+        ch_width = 75
+        ch_hpadding = 1*2       #left and right padding
+        ch_border = 1*2         #left and right border
+        ch_text_width = ch_width - (ch_hpadding + ch_border)
+        ch_content_height = 20  #20 lines of text max in content cell
+
+        """
+        Next we'll pre-process our text, wrapping to a given width and breaking into lines.
+        Interestingly, Python textwrap.wrap() doesn't properly handle newlines.  This 
+        list comprehension is a workaround that honors even multiple newlines.
+        Poached from: http://bugs.python.org/msg166629.  Thanks to that person.
+        """
+        text_chunks = [line for para in content.splitlines(True) for line in 
+            textwrap.wrap(para, ch_text_width, replace_whitespace=False) or ['']]
+
+        print "Split: ", content.splitlines(True)
+
+        # How many pages do we need, and how many overflow lines on last pg?
+        num_pages = int(math.ceil(len(text_chunks) / float(ch_content_height)))
+        overflow = len(text_chunks) % ch_content_height
+
+        # Print to console to see if this mirrors EvTable functionality   
+        print "text_chunks: ", text_chunks
+        print len(text_chunks)
+        print "Pages: %s" % num_pages
+        print "Overflow: %s" % overflow
+
+        
+        # Build the table. Heading cell text centered, content cell text
+        # left and top aligned, bottom cell text centered.
+
+        for group in chunker(text_chunks, ch_content_height):
+            print "Group: ", group
+            group = ' '.join(group)
+
+            table = EvTable(heading, border="table", width=ch_width, enforce_size=True)
+            table.add_row(group, align="l", border_top_char="~", height=ch_content_height, valign="t")
+            table.add_row("Pg. 1", align="c", valign="b")
+
+            print table
 
         return table
+
+
+
+    
 
 
 class Object(DefaultObject):

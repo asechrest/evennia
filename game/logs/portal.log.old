@@ -1,283 +1,71 @@
-2014-05-13 03:22:47+0000 [-] Log opened.
-2014-05-13 03:22:47+0000 [-] twistd 13.2.0 (/home/asechrest/Games/MUD/bin/python 2.7.5) starting up.
-2014-05-13 03:22:47+0000 [-] reactor class: twisted.internet.epollreactor.EPollReactor.
-2014-05-13 03:22:47+0000 [-] ServerFactory starting on 4000
-2014-05-13 03:22:47+0000 [-] Starting factory <twisted.internet.protocol.ServerFactory instance at 0x3262ef0>
-2014-05-13 03:22:47+0000 [-] Site starting on 8000
-2014-05-13 03:22:47+0000 [-] Starting factory <twisted.web.server.Site instance at 0x3263200>
-2014-05-13 03:22:47+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 03:22:47+0000 [Uninitialized] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 03:22:47+0000 [Uninitialized] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 03:22:49+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 03:22:49+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 35500) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:22:25+0000 [HTTPChannelWithXForwardedFor,0,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x32bd3f8>
-2014-05-13 04:22:25+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x32bd3f8>
-2014-05-13 04:22:25+0000 [HTTPChannelWithXForwardedFor,0,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c2170>
-2014-05-13 04:22:25+0000 [HTTPChannelWithXForwardedFor,1,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c25a8>
-2014-05-13 04:22:25+0000 [HTTPChannelWithXForwardedFor,2,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c2d88>
-2014-05-13 04:22:25+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c2170>
-2014-05-13 04:22:25+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c25a8>
-2014-05-13 04:22:25+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c2d88>
-2014-05-13 04:22:26+0000 [HTTPChannelWithXForwardedFor,2,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c5a28>
-2014-05-13 04:22:26+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c5a28>
-2014-05-13 04:22:26+0000 [HTTPChannelWithXForwardedFor,2,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c8128>
-2014-05-13 04:22:26+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c8128>
-2014-05-13 04:22:26+0000 [HTTPChannelWithXForwardedFor,2,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c8830>
-2014-05-13 04:22:26+0000 [HTTPChannelWithXForwardedFor,1,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c8e60>
-2014-05-13 04:22:26+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c8830>
-2014-05-13 04:22:26+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x32c8e60>
-2014-05-13 04:23:48+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 35500) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:23:48+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 04:23:48+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:23:49+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:23:49+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36236) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:24:26+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36236) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:24:26+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 04:24:26+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:24:27+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:24:27+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36239) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:51:37+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36239) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:51:37+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 04:51:37+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:51:38+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:51:38+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36445) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:52:51+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36445) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:52:51+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 04:52:51+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:52:52+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:52:52+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36447) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:54:01+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36447) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:54:01+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 04:54:01+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:54:03+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:54:03+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36449) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:55:22+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36449) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:55:22+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 04:55:22+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:55:23+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:55:23+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36454) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:55:59+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36454) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:55:59+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 04:55:59+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:56:00+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:56:00+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36465) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:57:34+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36465) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:57:34+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 04:57:34+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:57:36+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:57:36+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36470) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:58:18+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36470) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 04:58:18+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 04:58:18+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:58:19+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 04:58:19+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36472) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:01:11+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36472) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:01:11+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:01:11+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:01:12+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:01:12+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36480) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:02:29+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36480) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:02:29+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:02:29+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:02:30+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:02:30+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36483) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:05:42+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36483) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:05:42+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:05:42+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:05:43+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:05:43+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36546) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:09:47+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36546) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:09:47+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:09:47+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:09:48+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:09:48+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36557) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:10:25+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36557) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:10:25+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:10:25+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:10:26+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:10:26+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36560) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:11:27+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36560) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:11:27+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:11:27+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:11:28+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:11:28+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36572) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:11:54+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36572) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:11:54+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:11:54+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:11:55+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:11:55+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36573) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:12:13+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36573) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:12:13+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:12:13+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:12:14+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:12:14+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36574) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:13:43+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36574) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:13:43+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:13:43+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:13:44+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:13:44+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36579) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:14:06+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36579) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:14:06+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:14:06+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:14:07+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:14:07+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36581) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:19:36+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36581) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:19:36+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:19:36+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:19:37+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:19:37+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36664) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:23:19+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36664) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:23:19+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:23:19+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:23:20+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:23:20+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36686) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:23:38+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36686) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:23:38+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:23:38+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:23:39+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:23:39+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36687) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:24:00+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36687) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:24:00+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:24:00+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:24:01+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:24:01+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36688) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:24:13+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36688) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:24:13+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:24:13+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:24:14+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:24:14+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36689) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:28:00+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36689) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:28:00+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:28:00+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:28:01+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:28:01+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36730) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:28:50+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36730) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:28:50+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:28:50+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:28:51+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:28:51+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36733) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:29:09+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36733) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:29:09+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:29:09+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:29:10+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:29:10+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36734) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:30:39+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36734) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:30:39+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:30:39+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:30:40+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:30:40+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36738) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:30:52+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36738) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:30:52+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:30:52+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:30:53+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:30:53+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36739) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:31:13+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36739) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:31:13+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:31:13+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:31:14+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:31:14+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36741) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:33:05+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36741) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:33:05+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:33:05+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:33:06+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:33:06+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36745) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:34:52+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36745) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:34:52+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:34:52+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:34:53+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:34:53+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36749) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:35:08+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36749) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:35:08+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:35:08+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:35:09+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:35:09+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36751) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:37:44+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36751) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:37:44+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:37:44+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:37:45+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:37:45+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36759) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:38:12+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36759) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:38:12+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:38:12+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:38:13+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:38:13+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36760) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:41:50+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36760) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:41:50+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:41:50+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:41:50+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:41:50+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36785) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:44:55+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36785) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:44:55+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:44:55+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:44:56+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:44:56+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36795) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:45:20+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36795) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:45:20+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:45:20+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:45:21+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:45:21+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36798) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:47:04+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36798) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:47:04+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:47:04+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:47:05+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:47:05+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36813) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:47:21+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36813) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:47:21+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:47:21+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:47:22+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:47:22+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36814) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:47:42+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36814) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:47:42+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:47:42+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:47:43+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:47:43+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36815) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:47:48+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36815) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:47:48+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:47:48+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:47:50+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:47:50+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36816) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:47:57+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36816) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:47:57+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:47:57+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:47:58+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:47:58+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36817) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:48:08+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36817) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:48:08+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:48:08+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:48:09+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:48:09+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36818) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:48:57+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36818) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:48:57+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:48:57+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:48:58+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:48:58+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36821) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:49:12+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36821) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:49:12+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 0 seconds
-2014-05-13 05:49:12+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:49:13+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:49:13+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36822) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:49:44+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36822) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:49:44+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:49:44+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:49:45+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:49:45+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36823) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:50:01+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36823) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:50:01+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:50:01+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:50:02+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:50:02+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36824) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:56:54+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36824) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 05:56:54+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 05:56:54+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:56:56+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 05:56:56+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 36900) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 06:06:48+0000 [-] Received SIGINT, shutting down.
-2014-05-13 06:06:48+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 36900) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
-2014-05-13 06:06:48+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x3264050> will retry in 1 seconds
-2014-05-13 06:06:48+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x3196560>
-2014-05-13 06:06:48+0000 [-] (TCP Port 8000 Closed)
-2014-05-13 06:06:48+0000 [-] Stopping factory <twisted.web.server.Site instance at 0x3263200>
-2014-05-13 06:06:48+0000 [-] (TCP Port 4000 Closed)
-2014-05-13 06:06:48+0000 [-] Stopping factory <twisted.internet.protocol.ServerFactory instance at 0x3262ef0>
-2014-05-13 06:06:48+0000 [-] Main loop terminated.
-2014-05-13 06:06:48+0000 [-] Server Shut Down.
+2014-05-14 01:58:10+0000 [-] Log opened.
+2014-05-14 01:58:10+0000 [-] twistd 13.2.0 (/home/asechrest/Games/MUD/bin/python 2.7.5) starting up.
+2014-05-14 01:58:10+0000 [-] reactor class: twisted.internet.epollreactor.EPollReactor.
+2014-05-14 01:58:10+0000 [-] ServerFactory starting on 4000
+2014-05-14 01:58:10+0000 [-] Starting factory <twisted.internet.protocol.ServerFactory instance at 0x410def0>
+2014-05-14 01:58:10+0000 [-] Site starting on 8000
+2014-05-14 01:58:10+0000 [-] Starting factory <twisted.web.server.Site instance at 0x410e200>
+2014-05-14 01:58:10+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 01:58:10+0000 [Uninitialized] <twisted.internet.tcp.Connector instance at 0x410f050> will retry in 1 seconds
+2014-05-14 01:58:10+0000 [Uninitialized] Stopping factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 01:58:11+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 01:58:11+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 33156) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 01:59:10+0000 [HTTPChannelWithXForwardedFor,0,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x4168440>
+2014-05-14 01:59:10+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x4168440>
+2014-05-14 01:59:10+0000 [HTTPChannelWithXForwardedFor,0,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x416d200>
+2014-05-14 01:59:10+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x416d200>
+2014-05-14 01:59:10+0000 [HTTPChannelWithXForwardedFor,0,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x416d8c0>
+2014-05-14 01:59:10+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x416d8c0>
+2014-05-14 01:59:10+0000 [HTTPChannelWithXForwardedFor,0,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x4170170>
+2014-05-14 01:59:10+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x4170170>
+2014-05-14 01:59:10+0000 [HTTPChannelWithXForwardedFor,0,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x4170878>
+2014-05-14 01:59:10+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x4170878>
+2014-05-14 01:59:11+0000 [HTTPChannelWithXForwardedFor,0,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x4170ef0>
+2014-05-14 01:59:11+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x4170ef0>
+2014-05-14 01:59:12+0000 [HTTPChannelWithXForwardedFor,0,127.0.0.1] Starting factory <twisted.web.proxy.ProxyClientFactory instance at 0x4173680>
+2014-05-14 01:59:12+0000 [ProxyClient,client] Stopping factory <twisted.web.proxy.ProxyClientFactory instance at 0x4173680>
+2014-05-14 02:30:45+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 33156) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 02:30:45+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x410f050> will retry in 1 seconds
+2014-05-14 02:30:45+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 02:30:46+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 02:30:46+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 33403) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 02:33:48+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 33403) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 02:33:48+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x410f050> will retry in 1 seconds
+2014-05-14 02:33:48+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 02:33:49+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 02:33:49+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 33409) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 02:40:51+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 33409) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 02:40:51+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x410f050> will retry in 1 seconds
+2014-05-14 02:40:51+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 02:40:53+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 02:40:53+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 33608) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 03:09:13+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 33608) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 03:09:13+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x410f050> will retry in 0 seconds
+2014-05-14 03:09:13+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 03:09:13+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 03:09:13+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 34105) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 03:09:24+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 34105) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 03:09:24+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x410f050> will retry in 0 seconds
+2014-05-14 03:09:24+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 03:09:25+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 03:09:25+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 34106) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 03:11:24+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 34106) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 03:11:24+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x410f050> will retry in 1 seconds
+2014-05-14 03:11:24+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 03:11:25+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 03:11:25+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 34121) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 03:13:48+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 34121) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 03:13:48+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x410f050> will retry in 0 seconds
+2014-05-14 03:13:48+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 03:13:49+0000 [-] Starting factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 03:13:49+0000 [Uninitialized] AMPProtocol connection established (HOST:IPv4Address(TCP, '127.0.0.1', 34128) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 03:49:13+0000 [-] Received SIGINT, shutting down.
+2014-05-14 03:49:13+0000 [AMPProtocol,client] AMPProtocol connection lost (HOST:IPv4Address(TCP, '127.0.0.1', 34128) PEER:IPv4Address(TCP, '127.0.0.1', 5000))
+2014-05-14 03:49:13+0000 [AMPProtocol,client] <twisted.internet.tcp.Connector instance at 0x410f050> will retry in 1 seconds
+2014-05-14 03:49:13+0000 [AMPProtocol,client] Stopping factory <src.server.amp.AmpClientFactory instance at 0x4041560>
+2014-05-14 03:49:13+0000 [-] (TCP Port 8000 Closed)
+2014-05-14 03:49:13+0000 [-] Stopping factory <twisted.web.server.Site instance at 0x410e200>
+2014-05-14 03:49:13+0000 [-] (TCP Port 4000 Closed)
+2014-05-14 03:49:13+0000 [-] Stopping factory <twisted.internet.protocol.ServerFactory instance at 0x410def0>
+2014-05-14 03:49:13+0000 [-] Main loop terminated.
+2014-05-14 03:49:13+0000 [-] Server Shut Down.
