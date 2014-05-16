@@ -178,4 +178,7 @@ class CmdChapter(MuxCommand):
         caller.msg("You cannot change this chapter.")
         return
       else:
-        caller.msg(chapter.display_page())
+        ch_display = chapter.display_page()
+
+        for page in ch_display:
+          caller.msg(page)

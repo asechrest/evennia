@@ -112,19 +112,58 @@ class Chapter(Object):
         # Sample content for testing. In-game chapter content creation will involve
         # input on a single line (the text input field). Suggest user help text that
         # directs them to use a newline characters and three spaces to set apart.
-        content = "Once upon a time there was some test content. It was long, and crazy."
+        """
+        content = "ONCE upon a time there was some test content. It was long, and crazy."
         content += " We did some more test content here, to see if it wraps properly."
         content += " The test content endeavored to wrap improperly, but subsequently was "
-        content += "conquered, and thus wrapped properly. \n\nAnd so it was. And it was good. "
-        content += "This doesn't start a new line. "
-        content += "This overflows to a second page if height is 5."
+        content += "conquered, and thus wrapped properly. And so it was. And it was good. "
+        content += "This doesn't start a new line. This is some more filler content. "
+        content += "This overflows to a second page if height is 5. This is even more "
+        content += "filler content here. Yessssssssssssssssssssssssssssssssssssss! "
+        content += "filler content here. Yessssssssssssssssssssssssssssssssssssss! "
+        content += "filler content here. Yessssssssssssssssssssssssssssssssssssss! "
+        content += "filler content here. Yessssssssssssssssssssssssssssssssssssss! "
+        content += "filler content here. Yessssssssssssssssssssssssssssssssssssss! "
+        content += "filler content here. Yessssssssssssssssssssssssssssssssssssss! "
         
+        content = "  First line.\n\n"
+        content += "Second line.\n\n"
+        content += "Third line.\n\n"
+        content += "Fourt line.\n\n"
+        content += "Fifth line."
+        """
+
         # Set some chapter display variables
-        ch_width = 75
+        ch_width = 14
         ch_hpadding = 1*2       #left and right padding
         ch_border = 1*2         #left and right border
         ch_text_width = ch_width - (ch_hpadding + ch_border)
-        ch_content_height = 20  #20 lines of text max in content cell
+        ch_content_height = 10  #20 lines of text max in content cell
+
+        
+        content = "This is a line.\n\n  This is another. More text."
+        # I want it to split at the new lines and KEEP new line character
+        # list = ["This is a line.\n", "\n", "  This is another. More text."]
+        # If width is 20, what's the height of this? 
+
+        table = EvTable(heading, border="table", width=ch_width, enforce_size=True)
+        table.add_row(content, align="l", border_top_char="~", height=ch_content_height, valign="t")
+        table.add_row(("Pg. %s" % 1), align="c", valign="b")
+
+        print table
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         """
         Next we'll pre-process our text, wrapping to a given width and breaking into lines.
@@ -132,12 +171,16 @@ class Chapter(Object):
         list comprehension is a workaround that honors even multiple newlines.
         Poached from: http://bugs.python.org/msg166629.  Thanks to that person.
         """
-        text_chunks = [line for para in content.splitlines(True) for line in 
+        text_chunks = [line for para in content.splitlines(False) for line in 
             textwrap.wrap(para, ch_text_width, replace_whitespace=False) or ['']]
 
-        print "Split: ", content.splitlines(True)
+        # What the above is doing:
+        # ['   Start of paragraph, one line, then newline.\n', 'Second line.']
+        # First for loop: '   Start of paragraph, one line, then newline.\n'
 
-        # How many pages do we need, and how many overflow lines on last pg?
+        print "Split: ", content.splitlines(False)
+
+        # How many pages will we need, and how many overflow lines on last pg?
         num_pages = int(math.ceil(len(text_chunks) / float(ch_content_height)))
         overflow = len(text_chunks) % ch_content_height
 
@@ -147,21 +190,35 @@ class Chapter(Object):
         print "Pages: %s" % num_pages
         print "Overflow: %s" % overflow
 
-        
+        # A list of EvTables representing the pages of the chapter
+        ch_pages = []
+                
         # Build the table. Heading cell text centered, content cell text
         # left and top aligned, bottom cell text centered.
-
         for group in chunker(text_chunks, ch_content_height):
             print "Group: ", group
-            group = ' '.join(group)
+            
+            ev_string = ""
+
+            for item in group:
+                if not item:
+                    ev_string += "\n"
+                else:
+                    ev_string += item
+
+            #group = ' '.join(group)
+
+            page_num = len(ch_pages) + 1
 
             table = EvTable(heading, border="table", width=ch_width, enforce_size=True)
-            table.add_row(group, align="l", border_top_char="~", height=ch_content_height, valign="t")
-            table.add_row("Pg. 1", align="c", valign="b")
+            table.add_row(ev_string, align="l", border_top_char="~", height=ch_content_height, valign="t")
+            table.add_row(("Pg. %s" % page_num), align="c", valign="b")
 
             print table
-
-        return table
+            ch_pages.append(table)
+        
+        print "ch_pages: ", ch_pages
+        return ch_pages
 
 
 
