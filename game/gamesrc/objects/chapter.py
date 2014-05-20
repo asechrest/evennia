@@ -107,86 +107,81 @@ class Chapter(Object):
         """
         # Build the text for our header row, two lines
         book_title = "*** Arise ***".upper()
-        heading = book_title + "\nCh. %s: %s" % (self.db.chapter_num, self.db.chapter_title)
+        heading = "Ch. %s: %s" % (self.db.chapter_num, self.db.chapter_title)
 
         # Sample content for testing. In-game chapter content creation will involve
         # input on a single line (the text input field). Suggest user help text that
         # directs them to use a newline characters and three spaces to set apart.
-        """
-        content = "ONCE upon a time there was some test content. It was long, and crazy."
-        content += " We did some more test content here, to see if it wraps properly."
-        content += " The test content endeavored to wrap improperly, but subsequently was "
-        content += "conquered, and thus wrapped properly. And so it was. And it was good. "
-        content += "This doesn't start a new line. This is some more filler content. "
-        content += "This overflows to a second page if height is 5. This is even more "
-        content += "filler content here. Yessssssssssssssssssssssssssssssssssssss! "
-        content += "filler content here. Yessssssssssssssssssssssssssssssssssssss! "
-        content += "filler content here. Yessssssssssssssssssssssssssssssssssssss! "
-        content += "filler content here. Yessssssssssssssssssssssssssssssssssssss! "
-        content += "filler content here. Yessssssssssssssssssssssssssssssssssssss! "
-        content += "filler content here. Yessssssssssssssssssssssssssssssssssssss! "
-        
-        content = "  First line.\n\n"
-        content += "Second line.\n\n"
-        content += "Third line.\n\n"
-        content += "Fourt line.\n\n"
-        content += "Fifth line."
-        """
-
+        content = "  ONCE uponnn a time there was some test content. It was long, and crazy. This is extra text to check wrapping."
+        content += "\n\n   This is a new paragraph. We did some more test content here, to see if it wraps properly."
+      
         # Set some chapter display variables
-        ch_width = 14
+        ch_width = 75
         ch_hpadding = 1*2       #left and right padding
         ch_border = 1*2         #left and right border
         ch_text_width = ch_width - (ch_hpadding + ch_border)
         ch_content_height = 10  #20 lines of text max in content cell
-
         
-        content = "This is a line.\n\n  This is another. More text."
-        # I want it to split at the new lines and KEEP new line character
-        # list = ["This is a line.\n", "\n", "  This is another. More text."]
-        # If width is 20, what's the height of this? 
-
-        table = EvTable(heading, border="table", width=ch_width, enforce_size=True)
-        table.add_row(content, align="l", border_top_char="~", height=ch_content_height, valign="t")
-        table.add_row(("Pg. %s" % 1), align="c", valign="b")
-
-        print table
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         """
         Next we'll pre-process our text, wrapping to a given width and breaking into lines.
         Interestingly, Python textwrap.wrap() doesn't properly handle newlines.  This 
         list comprehension is a workaround that honors even multiple newlines.
         Poached from: http://bugs.python.org/msg166629.  Thanks to that person.
         """
-        text_chunks = [line for para in content.splitlines(False) for line in 
+        # Split to honor newlines
+        # Input parameter false, don't need '\n' retained because each separate list member
+        #   means we've reached a '\n' character.
+        # List member '' means we have a double newline and should have a completely blank line
+        split_content = content.splitlines(False)
+        print "Split: ", split_content
+
+        # NOT NEEDED: FOR FUTURE DELETION AFTER COMPLETION OF MANUAL BUILD OF BOOK
+        text_chunks = [line for para in split_content for line in 
             textwrap.wrap(para, ch_text_width, replace_whitespace=False) or ['']]
 
-        # What the above is doing:
-        # ['   Start of paragraph, one line, then newline.\n', 'Second line.']
-        # First for loop: '   Start of paragraph, one line, then newline.\n'
+        # Build a new list that wraps each line to our width, or in the case of empty string, adds a blank line
+        # Example list: ['ONCE upon a time there was some test content. It was long, and crazy., '', ' We did some more test content here, to see if it wraps properly.']
+        # For member in list, if member has text, wrap it to our width, add to new list, else add completely blank line to list
+        wrapped_content = []
+        for member in split_content:
+            if member:
+                wrapped_content.extend(textwrap.wrap(member, ch_text_width, replace_whitespace=False))
+            else:
+                wrapped_content.append(' ' * ch_text_width)
 
-        print "Split: ", content.splitlines(False)
+        print "Wrapped content: ", wrapped_content
+
+        # Now let's build the display of our chapter
+        btitle_leading = (ch_width - ch_hpadding - len(book_title)) / 2
+        btitle_trailing = (ch_width - ch_hpadding - len(book_title)) - btitle_leading
+        bheading_leading = (ch_width - ch_hpadding - len(heading)) / 2
+        bheading_trailing = (ch_width - ch_hpadding - len(heading)) - bheading_leading
+
+        print "+%s+" % ("-" * (ch_width - ch_border))
+        print "|%s%s%s|" % (" "*btitle_leading, book_title, " "*btitle_trailing)
+        print "|%s%s%s|" % (" "*bheading_leading, heading, " "*bheading_trailing)
+        print "+%s+" % ("-" * (ch_width - ch_border))
+
+        for line in wrapped_content:
+            l_len = len(line)
+            endspace = ch_text_width - l_len
+            print "| %s%s |" % (line, (" "*endspace))
+
+        # Build final line and pg number
+        pg_display = "Pg. 1"
+        bpage_leading = (ch_width - ch_hpadding - len(pg_display)) / 2
+        bpage_trailing = (ch_width - ch_hpadding - len(pg_display)) - bpage_leading
+        print "|%s%s%s|" % (" "*bpage_leading, pg_display, " "*bpage_trailing)
+        print "+%s+" % ("-" * (ch_width - ch_border))
+
 
         # How many pages will we need, and how many overflow lines on last pg?
         num_pages = int(math.ceil(len(text_chunks) / float(ch_content_height)))
         overflow = len(text_chunks) % ch_content_height
 
         # Print to console to see if this mirrors EvTable functionality   
-        print "text_chunks: ", text_chunks
-        print len(text_chunks)
+        #print "text_chunks: ", text_chunks
+        #print len(text_chunks)
         print "Pages: %s" % num_pages
         print "Overflow: %s" % overflow
 
@@ -196,22 +191,12 @@ class Chapter(Object):
         # Build the table. Heading cell text centered, content cell text
         # left and top aligned, bottom cell text centered.
         for group in chunker(text_chunks, ch_content_height):
-            print "Group: ", group
-            
-            ev_string = ""
-
-            for item in group:
-                if not item:
-                    ev_string += "\n"
-                else:
-                    ev_string += item
-
-            #group = ' '.join(group)
+            group = ' '.join(group)
 
             page_num = len(ch_pages) + 1
 
             table = EvTable(heading, border="table", width=ch_width, enforce_size=True)
-            table.add_row(ev_string, align="l", border_top_char="~", height=ch_content_height, valign="t")
+            table.add_row(group, align="l", border_top_char="~", height=ch_content_height, valign="t")
             table.add_row(("Pg. %s" % page_num), align="c", valign="b")
 
             print table
