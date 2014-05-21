@@ -26,7 +26,26 @@ import math
 from game.gamesrc.commands.cmdset import ChapterCmdSet
 from src.utils.evtable import EvTable
 
-# Support function to chunk a list
+"""
+Support function to chunk a list
+
+text = "I am a very, very helpful text"
+
+for group in chunker(text, 7):
+   print repr(group),
+# 'I am a ' 'very, v' 'ery hel' 'pful te' 'xt'
+
+print '|'.join(chunker(text, 10))
+# I am a ver|y, very he|lpful text
+
+animals = ['cat', 'dog', 'rabbit', 'duck', 'bird', 'cow', 'gnu', 'fish']
+
+for group in chunker(animals, 3):
+    print group
+# ['cat', 'dog', 'rabbit']
+# ['duck', 'bird', 'cow']
+# ['gnu', 'fish']
+"""
 def chunker(seq, size):
     return (seq[pos:pos + size] for pos in xrange(0, len(seq), size))
 
@@ -112,15 +131,20 @@ class Chapter(Object):
         # Sample content for testing. In-game chapter content creation will involve
         # input on a single line (the text input field). Suggest user help text that
         # directs them to use a newline characters and three spaces to set apart.
-        content = "  ONCE uponnn a time there was some test content. It was long, and crazy. This is extra text to check wrapping."
-        content += "\n\n   This is a new paragraph. We did some more test content here, to see if it wraps properly."
+        content = "  ONCE uponnnnnnn a time there was some test content. It was long, and crazy. This is extra text to check wrapping."
+        content += "\n\n   This is a new paragraph. We did some more test content here, to see if (wrap next) \n it wraps properly."
+        content += "\nAnother1 line."
+        content += "\n Another2 line."
+        content += "\n  Another3 line."
+        content += "\n   Another4 line."
+        content += "\n    Another5 line."
       
         # Set some chapter display variables
         ch_width = 75
         ch_hpadding = 1*2       #left and right padding
         ch_border = 1*2         #left and right border
         ch_text_width = ch_width - (ch_hpadding + ch_border)
-        ch_content_height = 10  #20 lines of text max in content cell
+        ch_content_height = 10  #lines of text max in content cell
         
         """
         Next we'll pre-process our text, wrapping to a given width and breaking into lines.
@@ -136,8 +160,8 @@ class Chapter(Object):
         print "Split: ", split_content
 
         # NOT NEEDED: FOR FUTURE DELETION AFTER COMPLETION OF MANUAL BUILD OF BOOK
-        text_chunks = [line for para in split_content for line in 
-            textwrap.wrap(para, ch_text_width, replace_whitespace=False) or ['']]
+        #text_chunks = [line for para in split_content for line in 
+            #textwrap.wrap(para, ch_text_width, replace_whitespace=False) or ['']]
 
         # Build a new list that wraps each line to our width, or in the case of empty string, adds a blank line
         # Example list: ['ONCE upon a time there was some test content. It was long, and crazy., '', ' We did some more test content here, to see if it wraps properly.']
@@ -149,61 +173,64 @@ class Chapter(Object):
             else:
                 wrapped_content.append(' ' * ch_text_width)
 
-        print "Wrapped content: ", wrapped_content
+        # Now we have a list of properly-wrapped lines. 
+        # Let's chunk our list into pieces that will fit in our desired content cell height.
+        # This should create a list of lists of strings
+        the_pages = chunker(wrapped_content, ch_content_height)
 
-        # Now let's build the display of our chapter
-        btitle_leading = (ch_width - ch_hpadding - len(book_title)) / 2
-        btitle_trailing = (ch_width - ch_hpadding - len(book_title)) - btitle_leading
-        bheading_leading = (ch_width - ch_hpadding - len(heading)) / 2
-        bheading_trailing = (ch_width - ch_hpadding - len(heading)) - bheading_leading
+        
+        """
+        Build our chapter display line by line, with a header, content, and page num section.
+        Our wrapped_content[] should already contain a properly-wrapped list of lines
+        """
+        pages_display = []
+        pg_num = 0
 
-        print "+%s+" % ("-" * (ch_width - ch_border))
-        print "|%s%s%s|" % (" "*btitle_leading, book_title, " "*btitle_trailing)
-        print "|%s%s%s|" % (" "*bheading_leading, heading, " "*bheading_trailing)
-        print "+%s+" % ("-" * (ch_width - ch_border))
+        for group in the_pages:                 # For list of strings in list of lists of strings
+            print "In for loop."
+            ch_display = ""
+            pg_num += 1
 
-        for line in wrapped_content:
-            l_len = len(line)
-            endspace = ch_text_width - l_len
-            print "| %s%s |" % (line, (" "*endspace))
+            # Calculation to center the text in the heading
+            btitle_leading = (ch_width - ch_hpadding - len(book_title)) / 2
+            btitle_trailing = (ch_width - ch_hpadding - len(book_title)) - btitle_leading
+            bheading_leading = (ch_width - ch_hpadding - len(heading)) / 2
+            bheading_trailing = (ch_width - ch_hpadding - len(heading)) - bheading_leading
 
-        # Build final line and pg number
-        pg_display = "Pg. 1"
-        bpage_leading = (ch_width - ch_hpadding - len(pg_display)) / 2
-        bpage_trailing = (ch_width - ch_hpadding - len(pg_display)) - bpage_leading
-        print "|%s%s%s|" % (" "*bpage_leading, pg_display, " "*bpage_trailing)
-        print "+%s+" % ("-" * (ch_width - ch_border))
+            # Build the heading
+            ch_display += "+%s+\n" % ("-" * (ch_width - ch_border))
+            ch_display += "|%s%s%s|\n" % (" "*btitle_leading, book_title, " "*btitle_trailing)
+            ch_display += "|%s%s%s|\n" % (" "*bheading_leading, heading, " "*bheading_trailing)
+            ch_display += "+%s+\n" % ("~" * (ch_width - ch_border))
 
+            # Build the content cell. This should generally honor formatting and newlines.
+            for line in group:
+                endspace = ch_text_width - len(line)
+                ch_display += "| %s%s |\n" % (line, (" "*endspace))
+
+            # If our content is less height than allowed, add blank lines to page
+            # Pages should be of uniform height even if there's not enough text to fill
+            leftover = ch_content_height - len(group)
+            while leftover > 0:
+                ch_display += "|%s|\n" % (" "*(ch_width - ch_border))
+                leftover -= 1
+
+            # Build final lines and pg number
+            pg_display = "Pg. %s" % pg_num
+            bpage_leading = (ch_width - ch_hpadding - len(pg_display)) / 2
+            bpage_trailing = (ch_width - ch_hpadding - len(pg_display)) - bpage_leading
+            ch_display += "|%s%s%s|\n" % (" "*bpage_leading, pg_display, " "*bpage_trailing)
+            ch_display += "+%s+\n" % ("-" * (ch_width - ch_border))
+
+            print ch_display
+            pages_display.append(ch_display)
+
+        print "Out of loop"
+        return pages_display
 
         # How many pages will we need, and how many overflow lines on last pg?
-        num_pages = int(math.ceil(len(text_chunks) / float(ch_content_height)))
-        overflow = len(text_chunks) % ch_content_height
-
-        # Print to console to see if this mirrors EvTable functionality   
-        #print "text_chunks: ", text_chunks
-        #print len(text_chunks)
-        print "Pages: %s" % num_pages
-        print "Overflow: %s" % overflow
-
-        # A list of EvTables representing the pages of the chapter
-        ch_pages = []
-                
-        # Build the table. Heading cell text centered, content cell text
-        # left and top aligned, bottom cell text centered.
-        for group in chunker(text_chunks, ch_content_height):
-            group = ' '.join(group)
-
-            page_num = len(ch_pages) + 1
-
-            table = EvTable(heading, border="table", width=ch_width, enforce_size=True)
-            table.add_row(group, align="l", border_top_char="~", height=ch_content_height, valign="t")
-            table.add_row(("Pg. %s" % page_num), align="c", valign="b")
-
-            print table
-            ch_pages.append(table)
-        
-        print "ch_pages: ", ch_pages
-        return ch_pages
+        #num_pages = int(math.ceil(len(text_chunks) / float(ch_content_height)))
+        #overflow = len(text_chunks) % ch_content_height
 
 
 
